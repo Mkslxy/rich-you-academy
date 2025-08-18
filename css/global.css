@@ -1,0 +1,31 @@
+@import url("https://fonts.google.com/share?selection.family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900|Montserrat:ital,wght@0,100..900;1,100..900|Noto+Sans:ital,wght@0,100..900;1,100..900|Oswald:wght@200..700");
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --title-color: white;
+    --title-font-size: 32px;
+    --title-underline-color: #17C2EC;
+    --body-font-family: "Montserrat", sans-serif;
+    --link-color: white;
+    --link-chosen-font-size: 24px;
+    --link-font-size: 24px;
+    --btn-background-color: #C4C4C41A;
+    --btn-text-color: #17C2EC;
+    --btn-font-size: 24px;
+}
+
+header {
+    background-image: url("/img/header-bg.jpg");
+    background-size: cover;
+}
+
+body {
+    font-family: var(--body-font-family);
+}
