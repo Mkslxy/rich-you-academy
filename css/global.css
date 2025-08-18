@@ -19,10 +19,16 @@
     --btn-background-color: #C4C4C41A;
     --btn-text-color: #17C2EC;
     --btn-font-size: 24px;
+    --header-hero-title-color: #17C2EC;
+    --header-hero-title-font-size: 48px;
+    --header-hero-subtitle-color: white;
+    --header-hero-special-text: #17C2EC;
+    --header-hero-description-font-size: 24px;
+    --header-hero-description-text-color: white;
 }
 
 header {
-    background-image: url("/img/header-bg.jpg");
+    background-image: url("/img/bg/header-bg.jpg");
     background-size: cover;
 }
 

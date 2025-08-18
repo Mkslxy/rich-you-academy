@@ -1,0 +1,73 @@
+.header__hero {
+    padding-left: 25px;
+    padding-top: 50px;
+
+    .header__hero-info {
+
+        .header__hero-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+
+            .header__hero-info-container-title {
+                color: var(--header-hero-title-color);
+            }
+
+            .header__hero-info-container-subtitle {
+                font-size: var(--header-hero-title-font-size);
+                font-weight: bold;
+                color: var(--header-hero-subtitle-color);
+
+                .header__hero-info-container-text {
+                    color: var(--header-hero-special-text);
+                }
+            }
+
+            .header__hero-info-container-description {
+                margin-bottom: 25px;
+                font-size: var(--header-hero-description-font-size);
+                color:var(--header-hero-description-text-color);
+                font-weight: bold;
+                opacity: 0.7;
+            }
+
+        }
+
+        .header__hero-buttons {
+            .header__hero-button-primary {
+
+            }
+
+            .header__hero-button-secondary {
+
+            }
+        }
+
+        .header__hero-schedule {
+            .header-hero-schedule-icon {
+
+            }
+
+            .header__hero-schedule-text {
+
+            }
+        }
+    }
+
+    .header__hero-image {
+        .header__hero-image-bg {
+
+        }
+
+        .header__hero-frame {
+
+            .header__hero-frame-container {
+                .header__hero-frame-text {
+
+                }
+            }
+
+        }
+    }
+
+}
