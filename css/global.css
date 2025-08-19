@@ -25,13 +25,48 @@
     --header-hero-special-text: #17C2EC;
     --header-hero-description-font-size: 24px;
     --header-hero-description-text-color: white;
+    --header-hero-btn-primary-bg-color: #17C2EC;
+    --header-hero-btn-primary-text-color: white;
+    --header-hero-btn-primary-font-size: 24px;
+    --header-hero-btn-secondary-bg-color: #C4C4C40D;
+    --header-hero-btn-secondary-font-size: 24px;
+    --header-hero-btn-secondary-text-color: white;
+    --header-hero-btn-secondary-border-color: #17C2EC;
+    --header-hero-schedule-text-color: white;
+    --header-hero-schedule-font-size: 24px;
+    --header-hero-schedule-subtext: white;
+    --header-hero-schedule-bg-color: #C4C4C40D;
+    --header-hero-schedule-btn-bg-color: #17C2EC;
+    --header-hero-schedule-btn-text-color: white;
+    --header-hero-schedule-btn-font-size: 24px;
+    --header-hero-bg-image-color: #17C2EC;
+    --header-hero-bg-image-container: white;
+    --header-hero-bottom-side-bg-color: #C4C4C433;
+    --header-hero-bottom-side-font-size: 24px;
+    --header-hero-bottom-side-color-text: white;
+    --header-hero-bottom-side-special-text: #17C2EC;
+    --header-hero-checkpoint-bg-color: rgba(255, 255, 255, 0.9);
+    --checker-upper-bg-color: #C4C4C40D;
+    --checker-text-color: white;
+    --checker-font-size: 24px;
+    --checker-bottom-bg-color: #C4C4C41A;
+    --checker-bottom-input-name-border: #17C2EC;
+    --checker-bottom-input-name-text-color: white;
+    --checker-bottom-input-name-bg-color: none;
+    --checker-bottom-input-number-bg-color: none;
+    --checker-bottom-input-number-text-color: white;
+    --checker-bottom-input-number-border: #C4C4C426;
+    --checker-bottom-btn-text-color: #17C2EC;
+    --checker-bottom-btn-bg-color: #C4C4C41A;
+    --checker-bottom-btn-border: #17C2EC;
+    --checker-bottom-info-bg-color: #C4C4C40D;
+    --checker-bottom-info-text-color: #17C2EC;
+    --checker-bottom-info-special-text-color:#17C2EC;
 }
 
-header {
-    background-image: url("/img/bg/header-bg.jpg");
-    background-size: cover;
-}
 
 body {
+    background-image: url("/img/bg/header-bg.jpg");
+    background-size: cover;
     font-family: var(--body-font-family);
 }

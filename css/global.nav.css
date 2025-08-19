@@ -47,11 +47,14 @@
     }
 
     .header-btn {
-        background-color: rgba(var(--btn-background-color), 0, 0, 10%);
+        background-color: var(--btn-background-color);
         color: var(--btn-text-color);
         font-weight: bold;
+        cursor: pointer;
         font-size: var(--btn-font-size);
         padding: 15px;
+        border: none;
         border-radius: 15px;
+        box-shadow: 0 2px 5px black;
     }
 }
