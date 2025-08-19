@@ -107,7 +107,30 @@
     --prevention-reason-global-bg-color: #C4C4C433;
     --prevention-reason-global-text-color: #17C2EC;
     --prevention-reason-global-text-font-size: 20px;
-
+    --feedback-bg-color: white;
+    --feedback-title-color: #17C2EC;
+    --feedback-title-font-size: 24px;
+    --feedback-subtitle-color: black;
+    --feedback-subtitle-font-size: 48px;
+    --feedback-text-color: #00000080;
+    --feeback-text-font-size: 24px;
+    --feedback-list-bg-color: #C4C4C480;
+    --feedback-list-special-bg-color: #17C2EC;
+    --feedback__list-item-special-text-color: #17C2EC;
+    --feedback-list-name-color: black;
+    --feedback-list-name-font-size: 24px;
+    --feedback-list-city-color: #00000080;
+    --feedback-list-city-font-size: 14px;
+    --feedback-list-text-color: #00000099;
+    --feedback-list-text-font-size: 18px;
+    --feedback-list-item-new-text-color: white;
+    --feedback-list-item-new-name-color: white;
+    --feedback-list-item-new-city-color: white;
+    --feedback-quero-bg-color: #17C2EC;
+    --feedback__queto-title-color: white;
+    --feedback-quero-container-bg-color: #0B153C;
+    --feedback__queto-title-font-size: 48px;
+    --feedback__queto-subtitle-color: white;
 }
 
 
