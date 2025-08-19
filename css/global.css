@@ -61,7 +61,34 @@
     --checker-bottom-btn-border: #17C2EC;
     --checker-bottom-info-bg-color: #C4C4C40D;
     --checker-bottom-info-text-color: #17C2EC;
-    --checker-bottom-info-special-text-color:#17C2EC;
+    --checker-bottom-info-special-text-color: #17C2EC;
+    --vaccination-text-color: white;
+    --vaccination-text-font-size: 48px;
+    --vaccination-subtext-color: white;
+    --vaccination-subtext-font-size: 20px;
+    --vaccination-bottom-bg-color: #C4C4C433;
+    --vaccination-bottom-text-color: #17C2EC;
+    --vaccination-bottom-subtext-color: white;
+    --vaccination-bottom-link-color: #17C2EC;
+    --vaccination-bottom-text-font-size: 24px;
+    --vaccination-bottom-subtext-font-size: 16px;
+    --vaccination-bottom-link-font-size: 18px;
+    --vaccination-bottom-frame-border: #FFFFFF80;
+    --vaccination-bottom-frame-text-color: white;
+    --vaccination-bottom-frame-text-font-size: 24px;
+    --vaccination-bottom-frame-lnik-color: #FFFFFF80;
+    --register-bg-color: white;
+    --register-upper-text-font-size: 48px;
+    --register-upper-name-font-size: 24px;
+    --register-upper-input-bg-color: #0B153C26;
+    --register-bottom-text-font-size: 24px;
+    --register-bottom-subtext-font-size: 20px;
+    --register-bottom-subtext-color: #00000080;
+    --register-bottom-btn-bg-color: #17C2EC;
+    --register-bottom-btn-text-color: white;
+    --register-bottom-container-bg-color: #d9e2e8;
+    --regitster-bottom-btn-submit-bg-color: #17C2EC;
+    --regitster-bottom-btn-submit-text-color: white;
 }
 
 

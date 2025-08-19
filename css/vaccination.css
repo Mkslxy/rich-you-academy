@@ -1,0 +1,110 @@
+.vaccination {
+    margin: 100px 200px;
+
+    .vaccination__upper {
+        display: flex;
+        justify-content: flex-start;
+        gap: 520px;
+
+        .vaccination__upper-text {
+            color: var(--vaccination-text-color);
+            font-size: var(--vaccination-text-font-size);
+            font-weight: bold;
+            flex-shrink: 0;
+            max-width: 500px;
+        }
+
+        .vaccination__upper-subtext {
+            color: var(--vaccination-subtext-color);
+            opacity: 0.5;
+            font-size: var(--vaccination-subtext-font-size);
+            flex: 1;
+        }
+    }
+
+    .vaccination__bottom {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        gap: 125px;
+
+        .vaccination__bottom-main-frame {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background-color: var(--vaccination-bottom-bg-color);
+            border-radius: 40px 150px 40px 40px;
+            padding: 20px 40px 50px 20px;
+            width: 360px;
+
+            .vaccination__bottom-image {
+                width: 100px;
+                height: 100px;
+            }
+
+            .vaccination__bottom-main-frame-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                .vaccination__bottom-main-frame-container-text {
+                    color: var(--vaccination-bottom-text-color);
+                    font-weight: bold;
+                    font-size: var(--vaccination-bottom-text-font-size);
+
+                }
+
+                .vaccination__bottom-main-frame-container-subtext {
+                    color: var(--vaccination-bottom-subtext-color);
+                    font-size: var(--vaccination-bottom-subtext-font-size)
+                }
+
+                .vaccination__bottom-main-frame-container-link {
+                    color: var(--vaccination-bottom-link-color);
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+            }
+        }
+
+        .vaccination__bottom-frame {
+            border: 3px solid var(--vaccination-bottom-frame-border);
+            border-radius: 40px;
+            padding: 20px;
+            height: 300px;
+            align-self: flex-end;
+            width: 300px;
+            display: flex;
+            gap: 30px;
+            flex-direction: column;
+
+            .vaccination__bottom-image {
+                height: 70px;
+                width: 70px;
+            }
+
+            .vaccination__bottom-frame-container {
+                display: flex;
+                flex-direction: column;
+                gap: 60px;
+
+                .vaccination__bottom-frame-text {
+                    color: var(--vaccination-bottom-frame-text-color);
+                    font-weight: bold;
+                    font-size: var(--vaccination-bottom-frame-text-font-size);
+                }
+
+                .vaccination__bottom-main-frame-container-link {
+                    color: var(--vaccination-bottom-frame-lnik-color);
+                    font-size: var(--vaccination-bottom-link-font-size);
+                    text-decoration: none;
+                }
+
+                .link {
+                    margin-top: 25px;
+                }
+            }
+
+        }
+    }
+}

@@ -1,0 +1,97 @@
+.register {
+    background-color: var(--register-bg-color);
+    padding: 30px 0 0 200px;
+
+    .register__upper {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        .register__upper-text {
+            font-size: var(--register-upper-text-font-size);
+            font-weight: bold;
+        }
+
+        .register__upper-name {
+            font-size: var(--register-upper-name-font-size);
+            font-weight: bold;
+        }
+
+        .register__upper-input {
+            padding: 15px 120px 15px 20px;
+            width: 500px;
+            border-radius: 10px;
+            background-color: var(--register-upper-input-bg-color);
+            border: none;
+        }
+    }
+
+    .register__bottom {
+        display: flex;
+        gap: 16px;
+        flex-direction: column;
+        margin-top: 20px;
+
+        .register__bottom-text {
+            font-size: var(--register-bottom-text-font-size);
+            font-weight: bold;
+        }
+
+        .register__bottom-subtext {
+            font-size: var(--register-bottom-subtext-font-size);
+            color: var(--register-bottom-subtext-color);
+        }
+
+        .register__bottom-container {
+            display: flex;
+            align-items: center;
+            background: var(--register-bottom-container-bg-color);
+            border-radius: 15px;
+            padding: 10px 15px;
+            width: 300px;
+            max-height: 50px;
+
+            .register__bottom-container-flag {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+            }
+
+            .divider {
+                width: 2px;
+                height: 29px;
+                background: rgba(0, 0, 0, 0.2);
+                margin: 0 10px;
+            }
+
+            .register__bottom-container-input {
+                border: none;
+                background: none;
+            }
+
+            .register__bottom-button {
+                background-color: var(--register-bottom-btn-bg-color);
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                padding: 17px 50px;
+                margin-left: 70px;
+                border-radius: 20px;
+                color: var(--register-bottom-btn-text-color);
+            }
+
+
+        }
+
+        .register__bottom-btn-submit {
+            width: 470px;
+            padding: 20px 70px;
+            background-color: var(--regitster-bottom-btn-submit-bg-color);
+            border: none;
+            border-radius: 25px;
+            color: var(--regitster-bottom-btn-submit-text-color);
+            font-weight: bold;
+        }
+    }
+}
