@@ -120,6 +120,7 @@
     .register__verify {
         background-color: var(--register-verify-bg-color);
         background-image: url("/img/register/verify/bg-verify.png");
+        border-radius: 25px;
         height: 460px;
         width: 380px;
         object-fit: cover;

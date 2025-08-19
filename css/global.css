@@ -97,6 +97,17 @@
     --register-bottom-side-text-font-size: 20px;
     --register-bottom-side-link-color: #17C2EC;
     --register-bottom-side-link-font-size: 20px;
+    --prevention-title-text-color: white;
+    --prevention-title-font-size: 24px;
+    --prevention-text-color: white;
+    --prevention-special-text-color: #17C2EC;
+    --prevention-text-font-size: 48px;
+    --prevention-subtext-color: #FFFFFF80;
+    --prevention-subtext-font-size: 20px;
+    --prevention-reason-global-bg-color: #C4C4C433;
+    --prevention-reason-global-text-color: #17C2EC;
+    --prevention-reason-global-text-font-size: 20px;
+
 }
 
 
