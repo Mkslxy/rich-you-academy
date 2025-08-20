@@ -10,6 +10,7 @@
 
 :root {
     --title-color: white;
+    --header-border-line-color: #C4C4C426;
     --title-font-size: 32px;
     --title-underline-color: #17C2EC;
     --body-font-family: "Montserrat", sans-serif;

@@ -10,6 +10,7 @@
             font-size: var(--checker-font-size);
             padding: 20px 10px 20px 200px;
         }
+
     }
 
     .checker__bottom {
@@ -59,11 +60,58 @@
                 text-align: center;
                 color: var(--checker-bottom-info-text-color);
                 font-weight: bold;
-                .checker__bottom-info-link{
+
+                .checker__bottom-info-link {
                     color: var(--checker-bottom-info-special-text-color);
                     cursor: pointer;
                     font-weight: bold;
                 }
+            }
+        }
+    }
+
+    @media (max-width: 768px) {
+        .checker__upper {
+
+            margin: 50px 50px 0 50px;
+            display: flex;
+            justify-content: center;
+
+            .checker__upper-text {
+                padding: 10px;
+                font-size: 18px;
+                text-align: center;
+            }
+        }
+
+        .checker__bottom {
+
+            margin: 0 50px 0 50px;
+            padding: 20px;
+            border-radius: 0 0 15px 15px;
+
+            .checker__bottom-container {
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 122px;
+
+                input {
+                    width: 100%;
+                    max-width: 350px;
+                    padding: 15px;
+                }
+
+                .checker__bottom-button {
+                    width: 100%;
+                    max-width: 200px;
+                    margin-top: 10px;
+                }
+            }
+
+            .checker__bottom-info {
+                width: 100%;
+                padding: 15px;
             }
         }
     }
