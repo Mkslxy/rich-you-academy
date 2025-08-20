@@ -1,0 +1,338 @@
+.header__hero {
+    padding-left: 25px;
+    padding-top: 50px;
+    display: flex;
+    gap: 25%;
+    align-items: flex-start;
+    margin: 20px 150px 0 140px;
+
+    .header__hero-info {
+        padding-left: 40px;
+
+        .header__hero-info-container {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+
+            .header__hero-info-container-title {
+                color: var(--header-hero-title-color);
+            }
+
+            .header__hero-info-container-subtitle {
+                font-size: var(--header-hero-title-font-size);
+                font-weight: bold;
+                color: var(--header-hero-subtitle-color);
+
+                .header__hero-info-container-text {
+                    color: var(--header-hero-special-text);
+                }
+            }
+
+            .header__hero-info-container-description {
+                margin-bottom: 25px;
+                font-size: var(--header-hero-description-font-size);
+                color: var(--header-hero-description-text-color);
+                font-weight: bold;
+                opacity: 0.7;
+            }
+
+        }
+
+        .header__hero-buttons {
+
+            .header__hero-button-primary {
+                margin-top: 25px;
+                background-color: var(--header-hero-btn-primary-bg-color);
+                border-radius: 15px;
+                font-size: var(--header-hero-btn-primary-font-size);
+                font-family: var(--body-font-family);
+                color: var(--header-hero-btn-primary-text-color);
+                padding: 17px;
+                font-weight: bold;
+                margin-right: 20px;
+                cursor: pointer;
+                border: none;
+            }
+
+            .header__hero-button-secondary {
+                background-color: rgba(var(--header-hero-btn-secondary-bg-color), 0, 0, 0.1);
+                border: 2px solid var(--header-hero-btn-secondary-border-color);
+                font-size: var(--header-hero-btn-secondary-font-size);
+                border-radius: 15px;
+                font-family: var(--body-font-family);
+                padding: 17px;
+                color: var(--header-hero-btn-secondary-text-color);
+                cursor: pointer;
+                font-weight: bold;
+            }
+        }
+
+    }
+
+    .header__hero-image {
+
+        background-color: var(--header-hero-bg-image-color);
+        background-image: url("/img/header-hero/img-bg-header-hero/bg-header-hero.png");
+        background-size: cover;
+        display: flex;
+        margin-bottom: 25px;
+        border-radius: 50px;
+
+        .header__hero-image-bg {
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 80%;
+            width: 500px;
+            height: 500px;
+
+            .header__hero-left-container {
+
+                border-radius: 15px;
+                width: 96px;
+                height: 96px;
+                display: flex;
+                flex-direction: column;
+                gap: 200px;
+
+
+                .header__hero-bottom-side {
+                    background-color: var(--header-hero-bottom-side-bg-color);
+                    padding: 15px;
+                    width: 350px;
+                    border-radius: 25px;
+                    display: flex;
+                    gap: 15px;
+
+                    .header__hero-bottom-side-images {
+                        display: flex;
+
+                        .header__hero-bottom-side-img {
+                            width: 60px;
+                            height: 60px;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    .header__hero-bottom-side-text {
+                        font-weight: bold;
+                        font-size: var(--header-hero-bottom-side-font-size);
+                        color: var(--header-hero-bottom-side-color-text);
+
+                        .header__hero-bottom-side-special-text {
+                            color: var(--header-hero-bottom-side-special-text);
+                        }
+                    }
+                }
+
+                .header__hero-left-image {
+                    width: 96px;
+                    height: 96px;
+                    border-radius: 15px;
+                    align-items: center;
+                }
+            }
+        }
+
+    }
+
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        gap: 50px;
+        .header__hero-image {
+            place-self: center;
+        }
+    }
+
+    @media (max-width: 480px) {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+        gap: 50px;
+        .header__hero-image-bg {
+            place-self: center;
+            max-width: 350px;
+            width: 100%;
+
+        }
+
+        img {
+            width: 70px !important;
+        }
+
+        .header__hero-left-image {
+            width: 70px !important;
+        }
+    }
+}
+
+.header__hero-schedule {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px 200px 0 200px;
+
+
+    .header__hero-schedule-top {
+
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        .header-hero-schedule-icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        .header__hero-schedule-text {
+            color: var(--header-hero-schedule-text-color);
+            font-size: var(--header-hero-schedule-font-size);
+            font-weight: bold;
+        }
+    }
+
+
+    .header__hero-schedule-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        background-color: var(--header-hero-schedule-bg-color);
+        padding: 50px 100px 20px 20px;
+        width: 100%;
+        border-radius: 15px;
+        box-shadow: 0 -10px 0 rgba(48, 48, 48, 0.3);
+
+        .header__hero-schedule-item {
+
+            display: flex;
+            gap: 20px;
+
+            .header__hero-schedule-item-icon {
+                width: 45px;
+                height: 45px;
+            }
+
+            .header__hero-schedule-item-content {
+                display: flex;
+                flex-direction: column;
+                gap: 5px;
+
+                .header__hero-schedule-item-text {
+                    color: var(--header-hero-schedule-text-color);
+                    font-weight: bold;
+                    opacity: 50%;
+                    white-space: nowrap;
+                }
+
+                .header__hero-schedule-item-subtext {
+                    color: var(--header-hero-schedule-text-color);
+                    font-weight: bold;
+                    white-space: nowrap;
+                }
+            }
+        }
+
+        .header__hero-schedule-btn {
+            background-color: var(--header-hero-schedule-btn-bg-color);
+            border: none;
+            padding: 15px 20px 15px 20px;
+            border-radius: 15px;
+            color: var(--header-hero-schedule-btn-text-color);
+            cursor: pointer;
+            font-weight: bold;
+            font-size: var(--header-hero-schedule-btn-font-size);
+        }
+    }
+
+    @media (max-width: 768px) {
+        margin: 10px 0 0 50px;
+
+        .header__hero-schedule-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            width: 500px;
+        }
+
+        .header__hero-schedule {
+            margin: 0;
+        }
+
+        .header__hero-schedule-top {
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .header__hero-schedule-text {
+            margin-top: 25px;
+        }
+
+    }
+
+    @media (max-width: 480px) {
+        margin: 0;
+        align-items: center;
+
+        .header__hero-schedule-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+        }
+
+        .header__hero-schedule-top {
+            justify-content: center;
+            margin-top: 50px;
+        }
+
+        .header__hero-checkpoint {
+            justify-content: flex-start;
+            padding-left: 10px;
+
+            .header__hero-checkpoint-img {
+                width: 100%;
+                max-width: 50px;
+                height: auto;
+            }
+        }
+    }
+}
+
+.header__hero-checkpoint {
+    background-color: var(--header-hero-checkpoint-bg-color);
+    width: 100%;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+
+    .header__hero-checkpoint-img {
+        width: 288px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    @media (max-width: 768px) {
+        .header__hero-checkpoint-img {
+            width: 100%;
+            max-width: 100px;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header__hero-checkpoint-img {
+            width: 100%;
+            max-width: 80px;
+            height: auto;
+        }
+    }
+
+}

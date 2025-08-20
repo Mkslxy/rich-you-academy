@@ -1,0 +1,105 @@
+.header {
+    padding: 40px 25px 25px 25px;
+    display: flex;
+    justify-content: space-between;
+
+    .header__container {
+        .header__container-title {
+            color: var(--title-color);
+            font-size: var(--title-font-size);
+
+            .header__container-underline {
+                text-decoration: underline;
+                text-decoration-color: var(--title-underline-color);
+                text-underline-offset: 5px;
+            }
+        }
+    }
+
+    .header__links {
+        display: flex;
+        gap: 65px;
+        list-style: none;
+        padding-right: 50px;
+
+        .header__links-item-chosen {
+            color: var(--link-color);
+            font-size: var(--link-chosen-font-size);
+            font-weight: bold;
+            text-decoration: none;
+
+            .nav__dot {
+                display: block;
+                width: 12px;
+                height: 12px;
+                margin: 5px auto 0;
+                background-color: #00cfff;
+                border-radius: 50%;
+            }
+        }
+
+        .header__links-item {
+            color: var(--link-color);
+            opacity: 0.5;
+            font-size: var(--link-font-size);
+            text-decoration: none;
+        }
+    }
+
+    .header__burger {
+        background-color: var(--header-border-line-color);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 45px;
+        height: 45px;
+        border-radius: 10px;
+
+        .header__burger-line {
+            margin-left: 5px;
+            margin-right: 5px;
+            border: solid 1px white;
+        }
+
+        .header__burger-special-line{
+            margin-left: 5px;
+            margin-right: 5px;
+            border: solid 1px white;
+            width: 50%;
+        }
+    }
+
+    @media (min-width: 768px) {
+        .header__burger {
+            display: none;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .header__burger {
+            display: flex;
+        }
+
+        .header__links {
+            display: none;
+        }
+
+        .header-btn {
+            display: none;
+        }
+    }
+
+
+    .header-btn {
+        background-color: var(--btn-background-color);
+        color: var(--btn-text-color);
+        font-weight: bold;
+        cursor: pointer;
+        font-size: var(--btn-font-size);
+        padding: 15px;
+        border: none;
+        border-radius: 15px;
+        box-shadow: 0 2px 5px black;
+    }
+}
