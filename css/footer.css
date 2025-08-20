@@ -3,6 +3,7 @@
     display: flex;
     justify-content: space-between;
     margin-top: 150px;
+
     .footer__container {
         .footer__container-title {
             color: var(--title-color);
@@ -37,16 +38,27 @@
         }
     }
 
-    .footer__media{
+    .footer__media {
         list-style: none;
         display: flex;
-        .footer__media-item{
+
+        .footer__media-item {
 
         }
     }
 
     @media (max-width: 768px) {
-            flex-direction: column;
+        flex-direction: column;
         gap: 70px;
+    }
+
+    @media (max-width: 480px) {
+        flex-direction: column;
+        gap: 50px;
+        padding-left: 20px;
+
+        .footer__links{
+            gap:20px;
+        }
     }
 }

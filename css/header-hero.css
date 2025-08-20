@@ -89,13 +89,13 @@
 
             .header__hero-left-container {
 
-                background-color: var(--header-hero-bg-image-container);
                 border-radius: 15px;
                 width: 96px;
                 height: 96px;
                 display: flex;
                 flex-direction: column;
                 gap: 200px;
+
 
                 .header__hero-bottom-side {
                     background-color: var(--header-hero-bottom-side-bg-color);
@@ -130,6 +130,7 @@
                     width: 96px;
                     height: 96px;
                     border-radius: 15px;
+                    align-items: center;
                 }
             }
         }
@@ -156,6 +157,14 @@
             max-width: 350px;
             width: 100%;
 
+        }
+
+        img {
+            width: 70px !important;
+        }
+
+        .header__hero-left-image {
+            width: 70px !important;
         }
     }
 }
@@ -253,6 +262,11 @@
             margin: 0;
         }
 
+        .header__hero-schedule-top {
+            justify-content: center;
+            margin-top: 50px;
+        }
+
         .header__hero-schedule-text {
             margin-top: 25px;
         }
@@ -260,7 +274,22 @@
     }
 
     @media (max-width: 480px) {
-        margin: 10px 0 0 50px;
+        margin: 0;
+        align-items: center;
+
+        .header__hero-schedule-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+            max-width: 300px;
+            padding: 20px;
+        }
+
+        .header__hero-schedule-top {
+            justify-content: center;
+            margin-top: 50px;
+        }
 
         .header__hero-checkpoint {
             justify-content: flex-start;
@@ -294,6 +323,14 @@
         .header__hero-checkpoint-img {
             width: 100%;
             max-width: 100px;
+            height: auto;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .header__hero-checkpoint-img {
+            width: 100%;
+            max-width: 80px;
             height: auto;
         }
     }
