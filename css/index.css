@@ -1,0 +1,124 @@
+@import url("https://fonts.google.com/share?selection.family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900|Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900|Montserrat:ital,wght@0,100..900;1,100..900|Noto+Sans:ital,wght@0,100..900;1,100..900|Oswald:wght@200..700");
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    max-width: 430px;
+    max-height: 932px;
+    place-self: center;
+}
+
+.header {
+    padding-top: 25px;
+    padding-left: 25px;
+    place-self: flex-start;
+    background-color: #F9F5F4;
+    display: flex;
+    gap: 100px;
+}
+
+.header__subtitle {
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.header__title {
+    font-family: Inter, sans-serif;
+    font-size: 36px;
+}
+
+.main {
+    padding-top: 25px;
+    padding-left: 25px;
+    background-color: #F9F5F4;
+}
+
+.main__title {
+    color: #D1A28B;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.main__title-chosen {
+    font-size: 1.5rem;
+}
+
+.main__task {
+    margin-top: 25px;
+    height: 56px;
+    width: 386px;
+    background-color: #F3EFEE;
+    border-radius: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main__task-complete {
+    opacity: 0.1;
+    border: 1px solid black;
+}
+
+.main__task-un-complete {
+    width: 18px;
+    height: 18px;
+    margin: 0 20px;
+}
+
+.main__task-img-complete {
+    width: 18px;
+    height: 18px;
+    margin: 0 20px;
+}
+
+.main__task-text {
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+}
+
+.main__task-complete {
+    text-decoration: line-through;
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+}
+
+.footer {
+    padding-top: 100px;
+    padding-left: 25px;
+    background-color: #F9F5F4;
+}
+
+.footer__container {
+    display: flex;
+    padding-bottom: 25px;
+    gap: 25px;
+}
+
+.footer__input {
+    padding: 10px 50px 10px 10px;
+    border-radius: 12px;
+    border: none;
+    background-color: #F3EFEE;
+}
+
+.footer__btn {
+    background-color: #393433;
+    padding: 10px 20px 10px 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+}
