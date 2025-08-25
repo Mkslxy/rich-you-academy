@@ -16,6 +16,7 @@ html {
 body {
     max-width: 480px;
     max-height: 840px;
+    display: flex;
 }
 
 .header {
@@ -197,14 +198,14 @@ body {
         height: 56px;
         width: auto;
         padding: 0 15px;
-        margin-right:25px;
+        margin-right: 25px;
     }
 
     .main__task-text {
         font-size: 16px;
     }
 
-    .footer{
+    .footer {
         padding-top: 40px;
     }
 
@@ -225,7 +226,7 @@ body {
     }
 }
 
-@media (max-width: 350px){
+@media (max-width: 350px) {
     .header {
         flex-direction: row;
         justify-content: space-between;
@@ -241,14 +242,14 @@ body {
         height: 56px;
         width: auto;
         padding: 0 15px;
-        margin-right:25px;
+        margin-right: 25px;
     }
 
     .main__task-text {
         font-size: 16px;
     }
 
-    .footer{
+    .footer {
         padding-top: 40px;
     }
 
