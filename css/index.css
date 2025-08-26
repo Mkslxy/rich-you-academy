@@ -1,2 +1,6 @@
 @import 'global.css';
+@import 'login.css';
 @import 'global-nav.css';
+@import 'toDo-List.css';
+
+@import 'people.css';

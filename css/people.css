@@ -1,0 +1,24 @@
+.page__container{
+    .people__list{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px;
+        padding:25px;
+
+        .people__card{
+            border: 1px solid var(--people-border-color);
+            border-radius: 15px;
+            padding: 15px;
+
+            h3{
+                font-size: 15px;
+                margin: 0 0 10px 0;
+            }
+
+            p{
+                margin: 10px 0;
+                font-size: 20px;
+            }
+        }
+    }
+}

@@ -10,11 +10,32 @@
 
 :root {
     --text-color-title: black;
+    --header-background-color: rgba(42, 40, 44, 0.3);
+    --index-login-part-background-color: rgba(42, 40, 44, 0.3);
+    --index-login-part-global-hover-background-color: rgba(62, 21, 115, 0.3);
+    --index-login-part-global-background-color: rgba(68, 59, 78, 0.3);
     --global-nav-background-color: rgba(56, 35, 73, 0.3);
     --global-nav-list-item-background-color: rgba(52, 80, 108, 0.3);
     --global-nav-list-item-hover-color: rgba(83, 124, 172, 0.3);
+    --people-border-color: black;
 }
 
-body{
+body {
     font-family: 'Lato', sans-serif;
+    background-color: var(--index-login-part-background-color);
 }
+
+.page__container {
+    display: none;
+}
+
+.page__container:first-of-type {
+    display: block;
+}
+
+header,
+main,
+footer {
+    display: none;
+}
+

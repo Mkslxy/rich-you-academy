@@ -10,8 +10,10 @@
         margin: 0;
         flex: 1;
         justify-content: center;
+        align-items: center;
 
-        .global__nav-list-item a {
+
+        .global__nav-list-item a{
             color: var(--text-color-title);
             text-decoration: none;
             font-weight: 500;
@@ -22,9 +24,22 @@
             border-radius: 15px;
             cursor: pointer;
 
+
             &:hover {
                 background-color: var(--global-nav-list-item-hover-color);
             }
+        }
+
+        .logoutBtn{
+            color: var(--text-color-title);
+            text-decoration: none;
+            font-weight: 500;
+            list-style: none;
+            padding: 10px;
+            font-size: 20px;
+            background-color: var(--global-nav-list-item-background-color);
+            border-radius: 15px;
+            cursor: pointer;
         }
     }
 }

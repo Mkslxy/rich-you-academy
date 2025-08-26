@@ -1,0 +1,44 @@
+.login {
+    margin-top: 15%;
+    .login__container {
+        place-self: center;
+        .login__container-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+
+            .login__container-label {
+                .login__container-email {
+                    padding: 15px;
+                    border-radius: 16px;
+                    background-color: var(--index-login-part-global-background-color);
+                    border: none;
+
+                    &:hover {
+                        background-color: var(--index-login-part-global-hover-background-color);
+                    }
+                }
+
+                .login__container-password {
+                    padding: 15px;
+                    border-radius: 16px;
+                    background-color: var(--index-login-part-global-background-color);
+                    border: none;
+
+                    &:hover {
+                        background-color: var(--index-login-part-global-hover-background-color);
+                    }
+                }
+            }
+
+            .login__container-button {
+                padding: 15px;
+                border-radius: 16px;
+
+                &:hover {
+                    background-color: var(--index-login-part-global-hover-background-color);
+                }
+            }
+        }
+    }
+}

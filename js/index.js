@@ -1,16 +1,317 @@
+//link global nav href
+const navLinks = document.querySelectorAll('nav a[data-target]');
+const pages = document.querySelectorAll('.page__container');
 
-function init() {
-    import('./index.login.js')
-}
+navLinks.forEach(link => {
+    link.addEventListener('click', async (e) => {
+        e.preventDefault();
+        const target = link.getAttribute('data-target');
 
-if (localStorage.getItem("isLoggedIn") !== "true") {
-    window.location.href = "../html/index.login.partial.html";
-}
+        pages.forEach(page => {
+            page.style.display = 'none';
+        });
 
-const totalPartials = document.querySelectorAll('[hx-trigger="load"], [data-hx-trigger="load"]').length;
-let loadedPartialsCount = 0;
+        const targetPage = document.getElementById(target);
+        if (targetPage) {
+            targetPage.style.display = 'block';
+        }
 
-document.body.addEventListener('htmx:afterOnLoad', () => {
-    loadedPartialsCount++;
-    if (loadedPartialsCount === totalPartials) init();
+        //People API
+        if (target === 'people__container') {
+            await loadPeople();
+        }
+    })
+})
+
+//Login form
+document.addEventListener('DOMContentLoaded', () => {
+    const savedEmail = localStorage.getItem('userEmail');
+    const savedPassword = localStorage.getItem('userPassword');
+
+    if (savedEmail && savedPassword) {
+        showSite();
+    }
+
+    document.addEventListener('submit', (event) => {
+        if (event.target && event.target.classList.contains('login__container-form')) {
+            event.preventDefault();
+
+            const email = event.target.elements["email"].value.trim();
+            const password = event.target.elements["password"].value.trim();
+
+            if (password.length < 6) {
+                alert("Password must be at least 6 characters!");
+                return;
+            }
+
+
+            localStorage.setItem("userEmail", email);
+            localStorage.setItem("userPassword", password);
+        }
+
+        showSite();
+    });
+
+    function showSite() {
+        const login = document.querySelector('.login');
+        if (login) {
+            login.style.display = "none";
+        }
+
+        document.querySelector("header").style.display = "block";
+        document.querySelector("main").style.display = "block";
+        document.querySelector("footer").style.display = "block";
+        document.querySelector("body").style.backgroundColor = "rgba(255,255,255,0.9)";
+    }
+
+    function hideSite() {
+        document.querySelector('.login').style.display = "block";
+        document.querySelector("header").style.display = "none";
+        document.querySelector("main").style.display = "none";
+        document.querySelector("footer").style.display = "none";
+        document.querySelector("body").style.backgroundColor = "rgba(42, 40, 44, 0.3)";
+    }
+
+    const logoutBtn = document.querySelector(".logoutBtn");
+    logoutBtn.addEventListener("click", () => {
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userPassword");
+        hideSite();
+    });
+})
+
+//To Do List
+const input = document.querySelector(".footer__input");
+const btn = document.querySelector(".footer__btn");
+const titles = document.querySelectorAll(".main__title");
+const clearBtn = document.querySelector(".footer__clear-btn");
+const filterBtns =document.querySelectorAll(".filter-btn");
+
+const lists = [
+    {
+        id: 'list-1',
+        container: document.querySelector('#list-1'),
+    },
+    {
+        id: 'list-2',
+        container: document.querySelector('#list-2'),
+    },
+    {
+        id: 'list-3',
+        container: document.querySelector('#list-3'),
+    },
+]
+let currentList = lists[0];
+
+titles.forEach((title, index) => {
+    title.addEventListener('click', () => {
+        titles.forEach(titleRemove => titleRemove.classList.remove('main__title-chosen'));
+
+        title.classList.add('main__title-chosen');
+
+        currentList = lists[index];
+    })
 });
+
+function save() {
+    const data = lists.map(list => ({
+        id: list.id,
+        tasks: Array.from(list.container.querySelectorAll('.main__task-text')).map(text => text.textContent),
+    }));
+    localStorage.setItem('lists', JSON.stringify(data));
+}
+
+function load() {
+    const data = JSON.parse(localStorage.getItem('lists'));
+    if (!data) {
+        return;
+    } else {
+        data.forEach(savedList => {
+            const list = lists.find(list => list.id === savedList.id);
+            if (list) {
+                list.container.innerHTML = "";
+                savedList.tasks.forEach(task => {
+                    createTask(list.container, task);
+                })
+            }
+        })
+    }
+}
+
+filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const filter = btn.dataset.filter;
+
+        lists.forEach(list => {
+            const tasks = list.container.querySelectorAll('.main__task');
+            tasks.forEach(task => {
+                const isCompleted = task.classList.contains('main__task-complete');
+                if (filter === 'all') {
+                    task.style.display = 'flex';
+                } else if (filter === 'completed') {
+                    task.style.display = isCompleted ? 'flex' : 'none';
+                } else if (filter === 'uncompleted') {
+                    task.style.display = !isCompleted ? 'flex' : 'none';
+                }
+            });
+        });
+    });
+});
+
+function createTask(container, textContent) {
+    const task = document.createElement('div');
+    task.classList.add('main__task');
+    task.setAttribute('draggable', 'true');
+
+    const deleteBtn = document.createElement('button');
+    deleteBtn.classList.add('main__delete-btn');
+    deleteBtn.textContent = "Delete";
+
+    const editBtn = document.createElement('button');
+    editBtn.classList.add('main__edit-btn');
+    editBtn.textContent = "Edit";
+
+    const img = document.createElement('img');
+    img.src = '/img/un-complete.png';
+    img.alt = 'un-complete';
+    img.classList.add('main__task-un-complete');
+
+    const text = document.createElement('p');
+    text.textContent = textContent;
+    text.classList.add('main__task-text');
+
+    task.appendChild(img);
+    task.appendChild(text);
+    task.appendChild(editBtn);
+    task.appendChild(deleteBtn);
+
+    img.addEventListener('click', () => {
+
+        task.classList.toggle('main__task-complete');
+        text.classList.toggle('main__task-text-complete');
+
+        if (img.classList.contains('main__task-img-complete')) {
+            img.src = '/img/un-complete.png';
+            img.classList.remove('main__task-img-complete');
+        } else {
+            img.src = '/img/complete.png';
+            img.classList.add('main__task-img-complete');
+        }
+
+        save();
+    });
+
+    task.addEventListener('dragstart', () => {
+        task.classList.add('dragging');
+    })
+
+    task.addEventListener('dragend', () => {
+        task.classList.remove('dragging');
+        save();
+    })
+
+    deleteBtn.addEventListener('click', () => {
+        task.remove();
+        save();
+    })
+
+    editBtn.addEventListener('click', () => {
+        const newText = prompt("Edit your task:", text.textContent);
+        if (newText !== null && newText.trim() !== "") {
+            text.textContent = newText;
+            save();
+        }
+    })
+
+    container.appendChild(task);
+}
+
+
+function getDragAfterElement(container, y) {
+    const draggableElements = [...container.querySelectorAll('.main__task:not(.dragging)')];
+    const Number = null;
+
+    return draggableElements.reduce((closest, child) => {
+        const box = child.getBoundingClientRect();
+        const offset = y - box.top - box.height / 2;
+        if (offset < 0 && offset > closest.offset) {
+            return {offset: offset, element: child};
+        } else {
+            return closest;
+        }
+    }, {offset: Number}).element;
+}
+
+lists.forEach(list => {
+    list.container.addEventListener('dragover', (event) => {
+        event.preventDefault();
+        const dragging = document.querySelector(".dragging");
+        if (!dragging) return;
+
+        const afterElement = getDragAfterElement(list.container, event.clientY);
+
+        if (afterElement == null) {
+            list.container.appendChild(dragging);
+        } else {
+            list.container.insertBefore(dragging, afterElement);
+        }
+    });
+});
+
+clearBtn.addEventListener('click', (event) => {
+    lists.forEach(list => {
+        list.container.innerHTML = '';
+    });
+
+    localStorage.removeItem('lists');
+});
+
+
+function addTask() {
+    const text = input.value.trim();
+    if (!text) return;
+
+    createTask(currentList.container, text);
+    save();
+    input.value = '';
+}
+
+btn.addEventListener('click', addTask);
+input.addEventListener('keypress', event => {
+    if (event.key === "Enter") {
+        addTask();
+    }
+});
+
+if (localStorage.getItem('lists')) {
+    load();
+}
+
+//People API
+async function loadPeople(){
+    const container = document.querySelector('.people__list');
+
+    try{
+        const link = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await link.json();
+
+        container.innerHTML = '';
+
+        data.forEach((item) => {
+            const card = document.createElement('div');
+            card.classList.add('people__card');
+            card.innerHTML = `
+                <h3>${item.name}</h3>
+                <p>Email: ${item.email}</p>
+                <p>Phone: ${item.phone}</p>
+                <p>Company: ${item.company.name}</p>
+            `;
+            container.appendChild(card);
+        })
+    }catch(error){
+        container.innerHTML = 'Error loading info';
+    }
+}

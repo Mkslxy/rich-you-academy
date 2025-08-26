@@ -1,0 +1,164 @@
+#toDoList__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    padding-top: 25px;
+    padding-left: 25px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__subtitle {
+    font-weight: bold;
+}
+
+.header__title {
+    font-family: Inter, sans-serif;
+    font-size: 36px;
+}
+
+.filter-container {
+    display: flex;
+    gap: 10px;
+    padding-top: 25px;
+    padding-left: 25px;
+}
+
+.filter-btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #ccc;
+}
+
+.filter-btn.active {
+    background-color: #D1A28B;
+    color: white;
+}
+
+.main {
+    padding-top: 25px;
+    padding-left: 25px;
+    place-self: center;
+}
+
+.main__title {
+    color: #D1A28B;
+    font-family: Inter, sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-top: 25px;
+}
+
+.main__container {
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+}
+
+.main__title-chosen {
+    font-size: 1.5rem;
+}
+
+.main__task {
+    margin-top: 25px;
+    height: 56px;
+    width: 386px;
+    background-color: #F3EFEE;
+    border-radius: 12px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.main__task-complete {
+    opacity: 0.1;
+    border: 1px solid black;
+}
+
+.main__delete-btn {
+    margin-left: 5px;
+    margin-right: 20px;
+    cursor: pointer;
+    background-color: #FF4B4B;
+    padding: 10px 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+}
+
+.main__edit-btn {
+    margin-left: auto;
+    cursor: pointer;
+    background-color: grey;
+    padding: 10px 10px;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    border: none;
+}
+
+.main__task-un-complete {
+    width: 18px;
+    height: 18px;
+    margin: 0 20px;
+}
+
+.main__task-img-complete {
+    width: 18px;
+    height: 18px;
+    margin: 0 20px;
+}
+
+.main__task-text {
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+}
+
+.main__task-complete {
+    font-family: Inter, sans-serif;
+    font-size: 17px;
+}
+
+.footer {
+    padding-top: 50px;
+    padding-left: 25px;
+    place-self: center;
+}
+
+.footer__container {
+    display: flex;
+    padding-bottom: 25px;
+    gap: 25px;
+}
+
+.footer__input {
+    padding: 10px 50px 10px 10px;
+    border-radius: 12px;
+    border: none;
+    background-color: #F3EFEE;
+}
+
+.footer__btn {
+    background-color: #393433;
+    padding: 20px 20px 20px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+}
+
+.footer__clear-btn {
+    background-color: #FF4B4B;
+    padding: 20px 20px;
+    color: white;
+    font-weight: bold;
+    border-radius: 12px;
+    cursor: pointer;
+    border: none;
+}
