@@ -5,13 +5,15 @@
 
 .header {
     padding-top: 25px;
-    padding-left: 25px;
+    padding-left: 100px;
     display: flex;
     justify-content: space-between;
+    gap: 100%;
 }
 
 .header__subtitle {
     font-weight: bold;
+    padding-left:150px;
 }
 
 .header__title {
@@ -22,8 +24,7 @@
 .filter-container {
     display: flex;
     gap: 10px;
-    padding-top: 25px;
-    padding-left: 25px;
+    padding-left: 100px;
 }
 
 .filter-btn {

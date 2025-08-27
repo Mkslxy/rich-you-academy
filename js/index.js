@@ -30,6 +30,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (savedEmail && savedPassword) {
         showSite();
+    } else {
+        hideSite();
     }
 
     document.addEventListener('submit', (event) => {
@@ -39,6 +41,12 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = event.target.elements["email"].value.trim();
             const password = event.target.elements["password"].value.trim();
 
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
             if (password.length < 6) {
                 alert("Password must be at least 6 characters!");
                 return;
@@ -47,29 +55,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
             localStorage.setItem("userEmail", email);
             localStorage.setItem("userPassword", password);
+
+            showSite();
         }
 
-        showSite();
     });
 
     function showSite() {
         const login = document.querySelector('.login');
+        const body = document.querySelector('body');
         if (login) {
             login.style.display = "none";
         }
+        body.classList.remove('body__hidden');
+        body.classList.add('body__show');
 
         document.querySelector("header").style.display = "block";
         document.querySelector("main").style.display = "block";
         document.querySelector("footer").style.display = "block";
-        document.querySelector("body").style.backgroundColor = "rgba(255,255,255,0.9)";
+
     }
 
     function hideSite() {
+        const body = document.querySelector('body');
+
+        body.classList.remove('body__show');
+        body.classList.add('body__hidden');
+
         document.querySelector('.login').style.display = "block";
         document.querySelector("header").style.display = "none";
         document.querySelector("main").style.display = "none";
         document.querySelector("footer").style.display = "none";
-        document.querySelector("body").style.backgroundColor = "rgba(42, 40, 44, 0.3)";
+
     }
 
     const logoutBtn = document.querySelector(".logoutBtn");
@@ -77,15 +94,36 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.removeItem("userEmail");
         localStorage.removeItem("userPassword");
         hideSite();
+
+
     });
 })
+
+//Switcher background
+const switcher = document.querySelector('.switcher');
+const header = document.querySelector('.global__nav');
+const body = document.querySelector('body');
+
+let isDefault = true;
+
+switcher.addEventListener('click', () => {
+   if (isDefault){
+       header.style.backgroundColor = "white";
+       body.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
+   }else{
+       header.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
+       body.style.backgroundColor = "white";
+   }
+   isDefault = !isDefault;
+})
+
 
 //To Do List
 const input = document.querySelector(".footer__input");
 const btn = document.querySelector(".footer__btn");
 const titles = document.querySelectorAll(".main__title");
 const clearBtn = document.querySelector(".footer__clear-btn");
-const filterBtns =document.querySelectorAll(".filter-btn");
+const filterBtns = document.querySelectorAll(".filter-btn");
 
 const lists = [
     {
@@ -291,10 +329,10 @@ if (localStorage.getItem('lists')) {
 }
 
 //People API
-async function loadPeople(){
+async function loadPeople() {
     const container = document.querySelector('.people__list');
 
-    try{
+    try {
         const link = await fetch('https://jsonplaceholder.typicode.com/users');
         const data = await link.json();
 
@@ -311,7 +349,7 @@ async function loadPeople(){
             `;
             container.appendChild(card);
         })
-    }catch(error){
+    } catch (error) {
         container.innerHTML = 'Error loading info';
     }
 }

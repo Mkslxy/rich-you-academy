@@ -1,7 +1,5 @@
 .login {
-    margin-top: 15%;
     .login__container {
-        place-self: center;
         .login__container-form {
             display: flex;
             flex-direction: column;

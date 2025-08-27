@@ -3,7 +3,7 @@
         display: flex;
         flex-wrap: wrap;
         gap: 50px;
-        padding:25px;
+        padding:50px;
 
         .people__card{
             border: 1px solid var(--people-border-color);
