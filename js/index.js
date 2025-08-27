@@ -8,7 +8,7 @@ async function loadJSON() {
         if (!group[element.date]) {
             group[element.date] = 0;
         }
-            group[element.date] += element.amount;
+        group[element.date] += element.amount;
     })
     console.log(group);
 }
@@ -41,6 +41,8 @@ navLinks.forEach(link => {
 })
 
 //Login form
+const logoutBtn = document.querySelector(".logoutBtn");
+
 document.addEventListener('DOMContentLoaded', () => {
     const savedEmail = localStorage.getItem('userEmail');
     const savedPassword = localStorage.getItem('userPassword');
@@ -106,7 +108,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
 
-    const logoutBtn = document.querySelector(".logoutBtn");
     logoutBtn.addEventListener("click", () => {
         localStorage.removeItem("userEmail");
         localStorage.removeItem("userPassword");
@@ -116,22 +117,59 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 })
 
+
 //Switcher background
 const switcher = document.querySelector('.switcher');
 const header = document.querySelector('.global__nav');
 const body = document.querySelector('body');
+const navItems = document.querySelectorAll('li a');
+const listName = document.querySelectorAll('.main__title');
 
 let isDefault = true;
 
 switcher.addEventListener('click', () => {
+
+    const cards = document.querySelectorAll('.people__card');
+
     if (isDefault) {
         header.style.backgroundColor = "white";
-        body.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
-        body.style.color = "white";
-    } else {
-        header.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
-        body.style.backgroundColor = "white";
+        body.style.backgroundColor = "var(--index-login-part-alternative-global-background-color)";
         body.style.color = "black";
+        logoutBtn.style.color = "black";
+        switcher.style.backgroundColor = "black";
+        cards.forEach(card => {
+            card.style.border = "1px solid var(--people-border-color-dark)";
+        })
+        listName.forEach((item) => {
+            item.style.color = "black";
+        })
+
+        filterBtns.forEach(btn => {
+            btn.style.color = "black";
+        })
+        navItems.forEach(navItem => {
+            navItem.style.color = "black";
+        })
+
+    } else {
+        header.style.backgroundColor = "rgba(145,142,142,0.3)";
+        body.style.backgroundColor = "black";
+        body.style.color = "white";
+        switcher.style.backgroundColor = "white";
+        logoutBtn.style.color = "white";
+
+        cards.forEach(card => {
+            card.style.border = "1px solid white";
+        })
+        listName.forEach((item) => {
+            item.style.color = "white";
+        })
+        filterBtns.forEach(btn => {
+            btn.style.color = "white";
+        })
+        navItems.forEach(navItem => {
+            navItem.style.color = "white";
+        })
     }
     isDefault = !isDefault;
 })

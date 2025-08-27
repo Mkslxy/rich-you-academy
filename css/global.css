@@ -16,12 +16,13 @@
     --index-search-input-alternative-background-color: rgba(75, 138, 213, 0.3);
     --index-login-part-global-hover-background-color: rgba(62, 21, 115, 0.3);
     --index-login-part-global-background-color: rgba(68, 59, 78, 0.3);
-    --index-login-part-alternative-global-background-color: rgba(255, 255, 255, 0.9);
+    --index-login-part-alternative-global-background-color: rgba(166, 165, 165, 0.3);
     --index-login-part-logout-background-color: rgba(42, 40, 44, 0.3);
-    --global-nav-background-color: rgba(56, 35, 73, 0.3);
+    --global-nav-background-color: white;
     --global-nav-list-item-background-color: rgba(52, 80, 108, 0.3);
     --global-nav-list-item-hover-color: rgba(83, 124, 172, 0.3);
-    --people-border-color: black;
+    --people-border-color-dark: black;
+    --people-border-color-light: white;
 }
 
 body {
@@ -30,6 +31,8 @@ body {
     display: flex;
     min-height: 100vh;
 }
+
+
 
 .page__container {
     display: none;
