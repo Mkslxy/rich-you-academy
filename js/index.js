@@ -1,3 +1,20 @@
+//Analytics json
+async function loadJSON() {
+    const response = await fetch('../json/sales_february_2025.json');
+    const data = await response.json();
+
+    const group = {};
+    data.sales.forEach((element) => {
+        if (!group[element.date]) {
+            group[element.date] = 0;
+        }
+            group[element.date] += element.amount;
+    })
+    console.log(group);
+}
+
+loadJSON();
+
 //link global nav href
 const navLinks = document.querySelectorAll('nav a[data-target]');
 const pages = document.querySelectorAll('.page__container');
@@ -107,14 +124,16 @@ const body = document.querySelector('body');
 let isDefault = true;
 
 switcher.addEventListener('click', () => {
-   if (isDefault){
-       header.style.backgroundColor = "white";
-       body.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
-   }else{
-       header.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
-       body.style.backgroundColor = "white";
-   }
-   isDefault = !isDefault;
+    if (isDefault) {
+        header.style.backgroundColor = "white";
+        body.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
+        body.style.color = "white";
+    } else {
+        header.style.backgroundColor = "rgba(56, 35, 73, 0.3)";
+        body.style.backgroundColor = "white";
+        body.style.color = "black";
+    }
+    isDefault = !isDefault;
 })
 
 

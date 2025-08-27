@@ -5,12 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="191607ff-7d9c-4771-bfbc-f0af174ee714" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/css/analytics.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/json/sales_february_2025.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/global-nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/global-nav.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/login.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/index.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/css/people.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/people.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/toDo-List.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/toDo-List.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/html/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/html/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/js/index.js" afterDir="false" />
     </list>
@@ -64,11 +63,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\rich-you-academy\json" />
       <recent name="F:\rich-you-academy\img" />
       <recent name="F:\rich-you-academy\js" />
       <recent name="F:\rich-you-academy\html" />
       <recent name="F:\rich-you-academy\css" />
-      <recent name="F:\rich-you-academy\html\other\global_nav" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -93,7 +92,8 @@
       <workItem from="1756127748521" duration="97000" />
       <workItem from="1756127847949" duration="3909000" />
       <workItem from="1756220563221" duration="13697000" />
-      <workItem from="1756271096503" duration="4935000" />
+      <workItem from="1756271096503" duration="5483000" />
+      <workItem from="1756280803034" duration="2466000" />
     </task>
     <servers />
   </component>
