@@ -1,6 +1,6 @@
 //Analytics json
 async function loadJSON() {
-    const response = await fetch('../json/sales_february_2025.json');
+    const response = await fetch('json/sales_february_2025.json');
     const data = await response.json();
 
 //Line Chart
