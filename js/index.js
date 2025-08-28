@@ -3,15 +3,289 @@ async function loadJSON() {
     const response = await fetch('../json/sales_february_2025.json');
     const data = await response.json();
 
-    const group = {};
+//Line Chart
+    const groupLine = {};
     data.sales.forEach((element) => {
-        if (!group[element.date]) {
-            group[element.date] = 0;
+        if (!groupLine[element.date]) {
+            groupLine[element.date] = 0;
         }
-        group[element.date] += element.amount;
+        groupLine[element.date] += element.amount;
     })
 
-    const label = Object.keys(group).sort();
+    const labels = Object.keys(groupLine).sort();
+    const valuesLine = labels.map(item => (groupLine[item]));
+
+    new Chart(document.querySelector(".analytics__sales-chart"), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Product Sales',
+                data: valuesLine,
+                borderColor: 'white',
+                backgroundColor: 'rgba(181,170,170,0.2)',
+                fill: true,
+                tension: 0.3,
+                pointRadius: 5,
+                pointBackgroundColor: 'black',
+                pointHoverRadius: 15,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    title: {display: true, text: 'Date'}
+                },
+                y: {
+                    title: {display: true, text: 'Sums sales'}
+                }
+            },
+            plugins: {
+                legend: {display: true},
+                tooltip: {display: true},
+            }
+        }
+    });
+
+//Bar Chart
+    const groupLead = {};
+    data.sales.forEach((element) => {
+        if (element.isLead) {
+            groupLead[element.date] = (groupLead[element.date] || 0) + 1;
+        }
+    });
+
+    const valuesLead = labels.map(item => groupLead[item] || 0);
+
+
+    new Chart(document.querySelector(".analytics__leads-chart"), {
+        type: 'bar',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Lead per day',
+                data: valuesLead,
+                backgroundColor: 'rgba(108,101,101,0.2)',
+
+            }],
+            options: {
+                x: {title: {display: true, text: 'Date', color: 'white'}, ticks: {color: 'white'}},
+                y: {title: {display: true, text: 'Leads count', color: 'white'}, ticks: {color: 'white'}},
+            },
+            plugins: {
+                legend: {labels: {color: 'white'}},
+                tooltip: {enabled: true},
+            }
+        }
+    });
+
+    //Circle Chart
+    const orders = {};
+    data.sales.forEach((element) => {
+        if (!orders[element.customerId]) {
+            orders[element.customerId] = 1;
+        } else {
+            orders[element.customerId] += 1;
+        }
+    });
+
+    const categories = {"1 sale": 0, "2 sales": 0, "3 sales": 0, "4+ sales": 0};
+
+    Object.values(orders).forEach(order => {
+        if (order === 1) {
+            categories["1 sale"]++;
+        } else if (order === 2) {
+            categories["2 sales"]++;
+        } else if (order === 3) {
+            categories["3 sales"]++;
+        } else {
+            categories["4+ sales"]++;
+        }
+    });
+
+    new Chart(document.querySelector(".analytics__circle-chart"), {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(categories),
+            datasets: [{
+                data: Object.values(categories),
+                backgroundColor: ['#4CAF50', '#FF9800', '#F44336', '#5e6c5e'],
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                tooltip: {enabled: true},
+            }
+        }
+    });
+
+    //Second Line Chart
+    const secondGroupLine = {};
+    data.sales.forEach((element) => {
+        if (!secondGroupLine[element.date]) {
+            secondGroupLine[element.date] = 0;
+        }
+        secondGroupLine[element.date] += element.amount;
+    })
+
+
+    new Chart(document.querySelector(".analytics__second-line-chart"), {
+        type: 'line',
+        data: {
+            labels: labels,
+            datasets: [{
+                label: 'Product Sales',
+                data: valuesLine,
+                borderColor: 'white',
+                backgroundColor: 'rgba(177,140,140,0.2)',
+                fill: true,
+                tension: 0.3,
+                pointRadius: 5,
+                pointBackgroundColor: 'black',
+                pointHoverRadius: 15,
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                x: {
+                    title: {display: true, text: 'Date'}
+                },
+                y: {
+                    title: {display: true, text: 'Sums sales'}
+                }
+            },
+            plugins: {
+                legend: {display: true},
+                tooltip: {display: true},
+            }
+        }
+    });
+
+    //Radar Chart
+    const salesByManagers = {};
+
+    data.sales.forEach((element) => {
+        if (!salesByManagers[element.manager]) {
+            salesByManagers[element.manager] = 0;
+        }
+        salesByManagers[element.manager] += element.amount;
+    });
+
+    const managerLabels = Object.keys(salesByManagers);
+    const managerValues = managerLabels.map(item => salesByManagers[item]);
+
+    new Chart(document.querySelector(".analytics__radar-chart"), {
+        type: 'radar',
+        data: {
+            labels: managerLabels,
+            datasets: [{
+                label: 'Sales by Manager',
+                data: managerValues,
+                backgroundColor: 'rgba(181,170,170,0.2)',
+                borderColor: 'white',
+                pointBackgroundColor: 'black'
+            }]
+        },
+        options: {
+            responsive: true,
+            scales: {
+                r: {
+                    angleLines: {color: 'black'},
+                    grid: {color: 'gray'},
+                    pointLabels: {color: 'gray'},
+                }
+            },
+            plugins: {
+                legend: {labels: {color: 'white'}},
+                tooltip: {enabled: true}
+            }
+        }
+    });
+
+
+    //Tables
+
+    //Table income by manager
+
+    const managerIncome = {};
+    const firstContainer = document.querySelector('.analytics__container-first');
+    const secondContainer = document.querySelector('.analytics__container-second');
+
+    data.sales.forEach((element) => {
+        const {manager, amount} = element;
+        if (!managerIncome[manager]) {
+            managerIncome[manager] = {orders: 1, revenue: amount};
+        } else {
+            managerIncome[manager].orders += 1;
+            managerIncome[manager].revenue += amount;
+        }
+    });
+
+    const managerTable = document.createElement("table");
+    managerTable.classList.add('analytics__container-manager-table');
+    managerTable.innerHTML = `
+        <table class="manager-table">
+    <caption><strong>Income Managers</strong></caption>
+      <tr>
+        <th>Manager</th>
+        <th>Orders</th>
+        <th>Revenue</th>
+        <th>Avg Check</th>
+      </tr>
+    <tbody>
+      ${Object.entries(managerIncome).map(([manager, stats]) => `
+        <tr>
+          <td>${manager}</td>
+          <td>${stats.orders}</td>
+          <td>${stats.revenue}</td>
+          <td>${(stats.revenue / stats.orders).toFixed(2)}</td>
+        </tr>
+      `).join('')}
+    </tbody>
+  </table>
+`;
+    //Table income by low product
+
+    const productIncome = {};
+    data.sales.forEach((element) => {
+        const {product, amount} = element;
+        if (!productIncome[product]) {
+            productIncome[product] = {units: 1, revenue: amount};
+        }else{
+            productIncome[product].units += 1;
+            productIncome[product].revenue += amount;
+        }
+    })
+
+    const productTable = document.createElement("table");
+    productTable.classList.add('analytics__container-manager-table');
+    productTable.innerHTML = `
+    <caption><strong>Income with low products</strong></caption>
+        <tr>
+            <th>Product</th>
+            <th>Units</th>
+            <th>Revenue</th>
+            <th>Turnover</th>
+        </tr>
+        ${Object.entries(productIncome)
+        .sort((a, b) => a[1].revenue - b[1].revenue)
+        .map(([product, stats]) => `
+            <tr>
+                <td>${product}</td>
+                <td>${stats.units}</td>
+                <td>${stats.revenue}</td>
+                <td>${(stats.revenue / stats.units).toFixed(2)}</td>
+            </tr>
+        `).join('')}
+    `;
+
+    firstContainer.appendChild(managerTable);
+    secondContainer.appendChild(productTable);
 }
 
 loadJSON();

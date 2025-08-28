@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -94,8 +94,31 @@
     </div>
 
     <div id="analytics__container" class="page__container">
-        <h2 class="analytics__title">Daily schedule</h2>
-        <canvas class="analytics__sales-chart" width="600" height="400"></canvas>
+        <div>
+            <h2 class="analytics__title">Sales per day</h2>
+            <canvas class="analytics__sales-chart" width="600" height="400"></canvas>
+        </div>
+        <div>
+            <h2 class="analytics__title">Lead per day</h2>
+            <canvas class="analytics__leads-chart" width="600" height="400"></canvas>
+        </div>
+        <div>
+            <h2 class="analytics__title">Sales</h2>
+            <canvas class="analytics__circle-chart" width="600" height="400"></canvas>
+        </div>
+        <div>
+            <h2 class="analytics__title">Sales per day</h2>
+            <canvas class="analytics__second-line-chart" width="600" height="400"></canvas>
+        </div>
+        <div>
+            <h2 class="analytics__title">Sales by managers</h2>
+            <canvas class="analytics__radar-chart" width="600" height="400"></canvas>
+        </div>
+
+        <div id="analytics__container-tables">
+            <div class="analytics__container-first"></div>
+            <div class="analytics__container-second"></div>
+        </div>
     </div>
 
     <div id="products__container" class="page__container">

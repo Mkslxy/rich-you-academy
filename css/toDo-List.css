@@ -33,12 +33,12 @@
     border: none;
     border-radius: 8px;
     cursor: pointer;
-    background-color: #ccc;
+    background-color: var(--to-do-list-filter-btn-bg-color);
 }
 
 .filter-btn.active {
-    background-color: #D1A28B;
-    color: white;
+    background-color: var(--to-do-list-filter-btn-active-bg-color);
+    color: var(--to-do-list-filter-btn-active-text-color);
 }
 
 .main {
@@ -69,7 +69,7 @@
     margin-top: 25px;
     height: 56px;
     width: 386px;
-    background-color: #777575;
+    background-color: var(--to-do-list-main-task-bg-color);
     border-radius: 12px;
     display: flex;
     justify-content: flex-start;
@@ -78,14 +78,14 @@
 
 .main__task-complete {
     opacity: 0.1;
-    border: 1px solid black;
+    border: 1px solid var(--to-do-list-main-task-complete-border-color);
 }
 
 .main__delete-btn {
     margin-left: 5px;
     margin-right: 20px;
     cursor: pointer;
-    background-color: #FF4B4B;
+    background-color: var(--to-do-list-main-task-delete-bg-color);
     padding: 10px 10px;
     color: white;
     font-weight: bold;
@@ -96,9 +96,9 @@
 .main__edit-btn {
     margin-left: auto;
     cursor: pointer;
-    background-color: grey;
+    background-color: var(--to-do-list-main-edit-btn-bg-color);
     padding: 10px 10px;
-    color: white;
+    color: var(--to-do-list-main-edit-btn-text-color);
     font-weight: bold;
     border-radius: 12px;
     border: none;
@@ -144,17 +144,13 @@
     padding: 10px 50px 10px 10px;
     border-radius: 12px;
     border: none;
-    background-color: #F3EFEE;
-}
-
-.toDoList__description{
-
+    background-color: var(--to-do-list-footer-input-bg-color);
 }
 
 .footer__btn {
-    background-color: #393433;
+    background-color: var(--to-do-list-footer-btn-bg-color);
     padding: 20px 20px 20px 20px;
-    color: white;
+    color: var(--to-do-list-footer-btn-text-color);
     font-weight: bold;
     border-radius: 12px;
     cursor: pointer;
@@ -162,9 +158,9 @@
 }
 
 .footer__clear-btn {
-    background-color: #FF4B4B;
+    background-color: var(--to-do-list-footer-clear-btn-bg-color);
     padding: 20px 20px;
-    color: white;
+    color: var(--to-do-list-footer-clear-btn-text-color);
     font-weight: bold;
     border-radius: 12px;
     cursor: pointer;

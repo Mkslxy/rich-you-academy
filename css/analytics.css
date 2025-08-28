@@ -1,5 +1,55 @@
-#analytics__container{
-    .analytics__title{
+#analytics__container {
+    .analytics__title {
         padding: 25px 0 15px 100px;
+    }
+
+    .analytics__sales-chart {
+        width: 100% !important;
+        height: 500px !important;
+        padding-left: 170px;
+    }
+
+    .analytics__leads-chart {
+        height: 500px !important;
+        margin-left: 350px;
+    }
+
+    .analytics__circle-chart {
+        height: 500px !important;
+        margin-left: 500px;
+    }
+
+    .analytics__second-line-chart {
+        width: 100% !important;
+        height: 500px !important;
+        padding-left: 170px;
+    }
+
+    .analytics__radar-chart {
+        height: 1000px !important;
+        margin-left: 250px;
+    }
+
+    #analytics__container-tables {
+        place-self: center;
+        display: flex;
+        gap: 25px;
+        padding-left: 150px;
+        .analytics__container-manager-table {
+            border-collapse: collapse;
+            width: 400px;
+            height: 700px;
+
+            th {
+                border: 1px solid var(--analytics--container-manager-table-th);
+                padding: 10px 15px;
+            }
+
+            td {
+                border: 1px solid var(--analytics--container-manager-table-td);
+                padding: 10px 15px;
+            }
+        }
+
     }
 }

@@ -23,6 +23,22 @@
     --global-nav-list-item-hover-color: rgba(83, 124, 172, 0.3);
     --people-border-color-dark: black;
     --people-border-color-light: white;
+    --analytics--container-manager-table-th: #333;
+    --analytics--container-manager-table-td: #333;
+    --to-do-list-filter-btn-bg-color: #ccc;
+    --to-do-list-filter-btn-active-bg-color: #D1A28B;
+    --to-do-list-filter-btn-active-text-color: white;
+    --to-do-list-main-task-bg-color: #777575;
+    --to-do-list-main-task-complete-border-color: black;
+    --to-do-list-main-task-delete-bg-color: #FF4B4B;
+    --to-do-list-main-task-delete-text-color: white;
+    --to-do-list-main-edit-btn-bg-color: grey;
+    --to-do-list-main-edit-btn-text-color: white;
+    --to-do-list-footer-input-bg-color: #F3EFEE;
+    --to-do-list-footer-btn-bg-color: #393433;
+    --to-do-list-footer-btn-text-color: white;
+    --to-do-list-footer-clear-btn-bg-color: #FF4B4B;
+    --to-do-list-footer-clear-btn-text-color: white;
 }
 
 body {
@@ -31,7 +47,6 @@ body {
     display: flex;
     min-height: 100vh;
 }
-
 
 
 .page__container {
@@ -46,7 +61,7 @@ body {
     height: 100vh;
 }
 
-.topBar{
+.topBar {
     display: flex;
     gap: 10px;
     padding-top: 25px;
@@ -70,7 +85,7 @@ body {
     border-radius: 15px;
     background-color: black;
     cursor: pointer;
-    color: white ;
+    color: white;
 }
 
 .body__show {
