@@ -550,7 +550,7 @@ function createTask(container, textContent) {
     editBtn.textContent = "Edit";
 
     const img = document.createElement('img');
-    img.src = '/img/un-complete.png';
+    img.src = 'img/un-complete.png';
     img.alt = 'un-complete';
     img.classList.add('main__task-un-complete');
 
@@ -569,10 +569,10 @@ function createTask(container, textContent) {
         text.classList.toggle('main__task-text-complete');
 
         if (img.classList.contains('main__task-img-complete')) {
-            img.src = '/img/un-complete.png';
+            img.src = 'img/un-complete.png';
             img.classList.remove('main__task-img-complete');
         } else {
-            img.src = '/img/complete.png';
+            img.src = 'img/complete.png';
             img.classList.add('main__task-img-complete');
         }
 
