@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<div class="login">
+<section class="login">
     <div class="login__container">
         <form class="login__container-form" action="#" novalidate>
             <label class="login__container-label">
@@ -24,17 +24,31 @@
             <button class="login__container-button" type="submit">Submit</button>
         </form>
     </div>
-</div>
+</section>
 
 <header>
     <nav class="global__nav">
         <ul class="global__nav-list">
-            <li class="global__nav-list-item"><a href="#" data-target="toDoList__container">ToDo</a></li>
-            <li class="global__nav-list-item"><a href="#" data-target="analytics__container">Analytics</a></li>
-            <li class="global__nav-list-item"><a href="#" data-target="people__container">People</a></li>
-            <li class="global__nav-list-item"><a href="#" data-target="products__container">Products</a></li>
-            <li class="global__nav-list-item"><a href="#" data-target="settings__container">Settings</a></li>
-            <li class="global__nav-list-item">
+            <li>
+                <button class="global__nav-list-item" type="button" data-target="toDoList__container">ToDoList</button>
+            </li>
+            <li>
+                <button class="global__nav-list-item" type="button" data-target="analytics__container">Analytics
+                </button>
+            </li>
+            <li>
+                <button class="global__nav-list-item" type="button" data-target="people__container">People</button>
+            </li>
+            <li>
+                <button class="global__nav-list-item" type="button" data-target="products__container">Products</button>
+            </li>
+            <li>
+                <button class="global__nav-list-item" type="button" data-target="settings__container">Settings</button>
+            </li>
+        </ul>
+
+        <ul class="global__nav-list">
+            <li>
                 <button class="logoutBtn">Logout</button>
             </li>
         </ul>
@@ -44,14 +58,11 @@
 <main>
     <div class="topBar">
         <input type="text" placeholder="Search something..." class="search__input">
-        <div class="switcher"></div>
+        <button class="switcher">Switch theme</button>
     </div>
     <div id="toDoList__container" class="page__container">
         <div class="header">
             <h1 class="header__title">Today</h1>
-            <p class="header__subtitle">Please press on (Design,Work,WorkShop) to add task.. If you won't do this task
-                will
-                be automatically be added to design!</p>
         </div>
 
         <div class="filter-container">
@@ -71,16 +82,20 @@
 
         <div class="footer">
             <div class="footer__container">
-                <input type="text" placeholder="Write a task..." class="footer__input">
-                <button class="footer__btn">Add</button>
-                <button class="footer__clear-btn">Clear All</button>
+                <div>
+                    <input type="text" placeholder="Write a task..." class="footer__input">
+                    <button class="footer__btn">Add</button>
+                    <button class="footer__clear-btn">Clear All</button>
+                </div>
+
+                <p class="toDoList__description">Before adding choose needed category ("DESIGN" by default)</p>
             </div>
         </div>
     </div>
 
     <div id="analytics__container" class="page__container">
         <h2 class="analytics__title">Daily schedule</h2>
-        <canvac class="analytics__sales-chart" width="600" height="400"></canvac>
+        <canvas class="analytics__sales-chart" width="600" height="400"></canvas>
     </div>
 
     <div id="products__container" class="page__container">

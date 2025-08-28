@@ -49,6 +49,7 @@ body {
 .topBar{
     display: flex;
     gap: 10px;
+    padding-top: 25px;
 }
 
 .search__input {
@@ -69,6 +70,7 @@ body {
     border-radius: 15px;
     background-color: black;
     cursor: pointer;
+    color: white ;
 }
 
 .body__show {

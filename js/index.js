@@ -10,13 +10,14 @@ async function loadJSON() {
         }
         group[element.date] += element.amount;
     })
-    console.log(group);
+
+    const label = Object.keys(group).sort();
 }
 
 loadJSON();
 
 //link global nav href
-const navLinks = document.querySelectorAll('nav a[data-target]');
+const navLinks = document.querySelectorAll('button[data-target]');
 const pages = document.querySelectorAll('.page__container');
 
 navLinks.forEach(link => {
@@ -122,13 +123,12 @@ document.addEventListener('DOMContentLoaded', () => {
 const switcher = document.querySelector('.switcher');
 const header = document.querySelector('.global__nav');
 const body = document.querySelector('body');
-const navItems = document.querySelectorAll('li a');
+const navItems = document.querySelectorAll('.global__nav-list-item');
 const listName = document.querySelectorAll('.main__title');
 
 let isDefault = true;
 
-switcher.addEventListener('click', () => {
-
+function applyTheme() {
     const cards = document.querySelectorAll('.people__card');
 
     if (isDefault) {
@@ -137,6 +137,7 @@ switcher.addEventListener('click', () => {
         body.style.color = "black";
         logoutBtn.style.color = "black";
         switcher.style.backgroundColor = "black";
+        switcher.style.color = "white";
         cards.forEach(card => {
             card.style.border = "1px solid var(--people-border-color-dark)";
         })
@@ -157,6 +158,7 @@ switcher.addEventListener('click', () => {
         body.style.color = "white";
         switcher.style.backgroundColor = "white";
         logoutBtn.style.color = "white";
+        switcher.style.color = "black";
 
         cards.forEach(card => {
             card.style.border = "1px solid white";
@@ -171,7 +173,11 @@ switcher.addEventListener('click', () => {
             navItem.style.color = "white";
         })
     }
+}
+
+switcher.addEventListener('click', () => {
     isDefault = !isDefault;
+    applyTheme();
 })
 
 
@@ -405,7 +411,10 @@ async function loadPeople() {
                 <p>Company: ${item.company.name}</p>
             `;
             container.appendChild(card);
-        })
+
+        });
+
+        applyTheme();
     } catch (error) {
         container.innerHTML = 'Error loading info';
     }
