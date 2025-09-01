@@ -1,0 +1,12 @@
+[
+ {"id": 1, "name": "John Doe", "access_right": "admin"},
+ {"id": 2, "name": "Jane Smith", "access_right": "user"},
+ {"id": 3, "name": "Mike Johnson", "access_right": "user"},
+ {"id": 4, "name": "Alice Brown", "access_right": "user"},
+ {"id": 5, "name": "Tom Lee", "access_right": "admin"},
+ {"id": 6, "name": "Emma Davis", "access_right": "user"},
+ {"id": 7, "name": "Chris Wilson", "access_right": "user"},
+ {"id": 8, "name": "Sophia Taylor", "access_right": "user"},
+ {"id": 9, "name": "Daniel White", "access_right": "user"},
+ {"id": 10, "name": "Olivia Harris", "access_right": "admin"}
+]
