@@ -1,12 +1,20 @@
 import json
 import random
 import time
+import hashlib
+
+'Olivia Harris, password = 12'
+'John Doe, password = 12'
+'Tom Lee, password = 12'
 
 with open("users.json", "r", encoding='UTF-8') as file:
     data = json.load(file)
 
+def hash_password(password: str) -> str:
+    return hashlib.sha256(password.encode()).hexdigest()
 
-def access_required(username, required_role):
+
+def access_required(username, password, required_role):
     user = None
 
     for name in data:
@@ -16,6 +24,12 @@ def access_required(username, required_role):
 
     if not user:
         raise PermissionError("User not found")
+
+    if "password" not in user:
+        raise PermissionError("Password doesn't set to this user")
+
+    if user["password"] != hash_password(password):
+        raise PermissionError("Password is not correct")
 
     if user['access_right'] != required_role:
         raise PermissionError(f"User {username} does not have the required role {required_role}")
@@ -51,7 +65,7 @@ def timer(func):
     return wrapper
 
 
-def sort(func):
+def sort_result(func):
     def wrapper(*args, **kwargs):
         result = func(*args, **kwargs)
         return sorted(result)
@@ -63,7 +77,8 @@ def access_required_decorator(required_role):
     def decorator(func):
         def wrapper(*args, **kwargs):
             username = input("Username: ")
-            access_required(username, required_role)
+            password = input("Password: ")
+            access_required(username, password, required_role)
             return func(*args, **kwargs)
 
         return wrapper
@@ -75,12 +90,12 @@ def access_required_decorator(required_role):
 @logging_before
 @logging_after
 @timer
-@sort
-def get_alphabet():
+@sort_result
+def get_shuffled_alphabet():
     letters = list('abcdefghijklmnopqrstuvwxyz')
     random.shuffle(letters)
     return letters
 
 
-alphabet = get_alphabet()
+alphabet = get_shuffled_alphabet()
 print("Final result: ", alphabet)
