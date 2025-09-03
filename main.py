@@ -1,4 +1,3 @@
-import cmd
 import os
 import requests
 import urllib.parse
@@ -43,21 +42,32 @@ def get_weather_message(city):
     return message
 
 
-def get_currency_message(currency: str):
+def get_currency_message(currency: str, target: str = "UAH"):
     CURRENCY_KEY = os.getenv("CURRENCY_API")
-    code = (currency or "").strip().upper()
-    url = "https://api.exchangerate.host/live"
+    url = "https://api.exchangerate.host/convert"
+    params = {
+        "from": currency.upper(),
+        "to": target.upper(),
+        "amount": 1,
+        "access_key": CURRENCY_KEY,
+    }
 
-    r = requests.get(url, timeout=10)
-    if not r.ok:
-        return "Error"
+    r = requests.get(url, params=params)
 
     data = r.json()
 
-    rate = data.get["result"]
+    rate = data.get("result")
 
-    return (f"Currency: {code}\n"
-            f"To UAH: {rate}\n")
+    if rate is None:
+        return "UNKNOWN VALUE"
+
+    message = (
+        f"Currency: {currency} \n"
+        f"UAH: {rate} \n"
+    )
+
+    return message
+
 
 def get_translate_message(arg: str):
     parts = arg.split(" ", 1)
@@ -82,12 +92,12 @@ def send_to_telegram(message: str):
 
 
 HELP_TEXT = (
-    "Доступні команди:\n"
+    "Available commands:\n"
     "/weather {city}\n"
     "/currency {currency}\n"
     "/translate {lang} {text}\n"
     "/catfact\n"
-    "/exit — вихід"
+    "/exit"
 )
 
 if __name__ == "__main__":
@@ -99,7 +109,7 @@ if __name__ == "__main__":
             continue
 
         if cmd_input.lower() == "/exit":
-            print("Вихід...")
+            print("Exit...")
             break
 
         if cmd_input.startswith("/weather "):
@@ -118,4 +128,4 @@ if __name__ == "__main__":
             send_to_telegram(message)
 
         else:
-            print("Команда не розпізнана. Спробуйте ще раз.")
+            print("Not a valid command.")
