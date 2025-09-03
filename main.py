@@ -9,10 +9,9 @@ load_dotenv()
 TELEGRAM_TOKEN = os.getenv("TELEGRAM_TOKEN")
 CHAT_ID = os.getenv("CHAT_ID")
 TRANSLATE_KEY = os.getenv("TRANSLATE_API")
-city = str
 
 
-def get_weather_message(city):
+def get_weather_message(city: str):
     WEATHER_KEY = os.getenv("WEATHER_API")
     url = "https://api.openweathermap.org/data/2.5/weather"
     params = {
@@ -96,7 +95,6 @@ HELP_TEXT = (
     "/weather {city}\n"
     "/currency {currency}\n"
     "/translate {lang} {text}\n"
-    "/catfact\n"
     "/exit"
 )
 
@@ -104,7 +102,7 @@ if __name__ == "__main__":
     print(HELP_TEXT)
 
     while True:
-        cmd_input = input("\nВведіть команду: ").strip()
+        cmd_input = input("\nEnter command: ").strip()
         if not cmd_input:
             continue
 
