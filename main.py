@@ -1,6 +1,5 @@
 import os
 import requests
-import urllib.parse
 
 from dotenv import load_dotenv
 
@@ -21,7 +20,11 @@ def get_weather_message(city: str):
         "lang": "uk",
     }
 
-    r = requests.get(url, params=params)
+    r = requests.get(url, params=params, timeout=5)
+
+    if not r.ok:
+        return "NOT VALID CITY , PLEASE TRY AGAIN"
+
     data = r.json()
 
     name = data["name"]
@@ -30,15 +33,12 @@ def get_weather_message(city: str):
     humidity = data["main"]["humidity"]
     description = data["weather"][0]["description"]
 
-    message = (
-        f"Name: {name}\n"
-        f"Country: {country}\n"
-        f"Temp: {temp}°C\n"
-        f"Humidity: {humidity}%\n"
-        f"Description: {description}\n"
-    )
-
-    return message
+    return (f"Name: {name}\n"
+            f"Country: {country}\n"
+            f"Temp: {temp}°C\n"
+            f"Humidity: {humidity}%\n"
+            f"Description: {description}\n"
+            )
 
 
 def get_currency_message(currency: str, target: str = "UAH"):
@@ -60,41 +60,66 @@ def get_currency_message(currency: str, target: str = "UAH"):
     if rate is None:
         return "UNKNOWN VALUE"
 
-    message = (
-        f"Currency: {currency} \n"
-        f"UAH: {rate} \n"
-    )
-
-    return message
+    return (f"Currency: {currency}\n "
+            f"UAH: {rate}")
 
 
 def get_translate_message(arg: str):
+    TRANSLATE_KEY = os.getenv("TRANSLATE_API")
+
+    if TRANSLATE_KEY is None:
+        return "API NOT FOUND"
+
     parts = arg.split(" ", 1)
     if len(parts) < 2:
         return "You didn't write text or it below 2 letters."
-    target_lang, text = parts[0], parts[1]
-    url = f"https://lingva.ml/api/v1/auto/{target_lang}/{urllib.parse.quote(text)}"
+
+    target_lang = parts[0].upper()
+    text = parts[1]
+    url = "https://api-free.deepl.com/v2/translate"
+    params = {
+        "auth_key": TRANSLATE_KEY,
+        "target_lang": target_lang,
+        "text": text,
+    }
+
+    r = requests.get(url, params=params, timeout=10)
+
+    if not r.ok:
+        return "Problem with translation"
+
+    data = r.json()
+
+    translation = data.get("translations")
+    if not translation:
+        return "No translation found"
+
+    translation = translation[0].get("text")
+    return f"Your language: {target_lang}\nTranslation: {translation}"
+
+
+def get_cat_img():
+    url = "https://api.thecatapi.com/v1/images/search"
     r = requests.get(url, timeout=10)
     if not r.ok:
-        return "Problem with translating"
+        return "Something went wrong"
+
     data = r.json()
-    translation = data.get("translation")
-    if not translation:
-        return "No translation"
-    return f"Your language is {target_lang}:\n{translation}"
+    return data[0]["url"]
 
 
 def send_to_telegram(message: str):
     url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendMessage"
     payload = {"chat_id": CHAT_ID, "text": message}
-    requests.post(url, json=payload)
+    requests.post(url, params=payload)
 
 
 HELP_TEXT = (
     "Available commands:\n"
     "/weather {city}\n"
     "/currency {currency}\n"
-    "/translate {lang} {text}\n"
+    "/translate {lang text}\n"
+    "/cat {anything}\n"
     "/exit"
 )
 
@@ -124,6 +149,15 @@ if __name__ == "__main__":
             text = cmd_input[len("/translate "):].strip()
             message = get_translate_message(text)
             send_to_telegram(message)
+
+        elif cmd_input.startswith("/cat "):
+            cat_url = get_cat_img()
+            if cat_url.startswith("https"):
+                telegram_url = f"https://api.telegram.org/bot{TELEGRAM_TOKEN}/sendPhoto"
+                payload = {"chat_id": CHAT_ID, "photo": cat_url}
+                requests.post(telegram_url, params=payload)
+            else:
+                send_to_telegram(cat_url)
 
         else:
             print("Not a valid command.")
